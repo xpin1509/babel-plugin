@@ -9,17 +9,17 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'static/js/[name].[hash].js'
     },
-    // module: {
-    //     rules: [
-    //         {
-    //             test: /\.js$/,
-    //             sideEffects: false,
-    //             use: [
-    //                 'babel-loader',
-    //             ]
-    //         },
-    //     ]
-    // },
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
@@ -32,6 +32,7 @@ const config = {
             template: './public/index.html'
         }),
         new CleanWebpackPlugin()
-    ]
+    ],
+    // target: 'node'
 }
 module.exports = config

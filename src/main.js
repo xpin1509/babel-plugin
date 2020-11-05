@@ -1,1 +1,1 @@
-console.log('babel')
+const add = (a, b) => a + b
