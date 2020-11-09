@@ -1,8 +1,11 @@
+const { debug } = require("webpack");
+
 module.exports = function({ types: t }) {
     return {
       visitor: {
         //代表处理 ArrowFunctionExpression 节点
         ArrowFunctionExpression(path, state){
+          debugger
           // 原来的参数
           const  params = path.node.params
           // 创建一个blockStatement
